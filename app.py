@@ -6,7 +6,12 @@ import requests as rq
 app = Flask(__name__)
 
 headers = {
-    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
+    "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
+    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
+    "accept-encoding":"gzip, deflate, br, zstd",
+    "accept-language":"en-US,en;q=0.6",
+    "sec-ch-ua":'"Brave";v="125", "Chromium";v="125", "Not.A/Brand";v="24"',
+    "sec-ch-ua-platform": '"Linux"'
 }
 
 
@@ -47,9 +52,13 @@ def get_prices():
     return jsonify(data)
 
 
+@app.route("/status")
+def status():
+    return "OK"
+
 
 
 
 # if __name__ == "__main__":
-#     app.run("0.0.0.0", port=5000, debug=True)
+#     app.run(port=5000, debug=True)
 # Uncomment to test locally
